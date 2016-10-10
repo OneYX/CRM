@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>客户关系管理系统</title>
+  <link rel="stylesheet" type="text/css" href="js/easyui/themes/black/easyui.css">
+  <link rel="stylesheet" type="text/css" href="js/easyui/themes/icon.css">
+  <link rel="stylesheet" type="text/css" href="css/treeicon.css">
+  <script type="text/javascript" src="js/easyui/jquery.min.js"></script>
+  <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <style type="text/css">
+.west_header_ht {
+	height: 18px;
+	background: #586683;
+	color: #CCD8E7;
+}
+
+.bottom_c {
+	position: absolute;
+	bottom: 0;
+	background: #586683;
+	width: 100%;
+	text-align: center;
+	color: #CCD8E7;
+	padding: 4px 0;
+	font-size: 18px;
+}
+
+.warp {
+	height: 100%;
+	background: #586683;
+}
+.top_c {
+  background: url(img/logo.png) no-repeat #586683;
+  position: relative;
+}
+
+body {
+	color: #586683;
+}
+.layout-expand .panel-body {
+  background: #586683;
+}
+.layout-expand .panel-header {
+  background: #586683;
+}
+</style>
+</head>
+<body>
+	<div class="easyui-layout" fit="true" >
+		<div class="warp" data-options="region:'north'" style="height:59px;overflow:hidden;" border="false">
+			<div><h1>客户关系管理系统</h1></div>
+		</div>
+		<div data-options="region:'center',iconCls:'icon-ok'" border="true" style="border-bottom: none;">
+			<div id="hometabs" class="warp">
+				<div title="首页" >
+					<iframe src="time.html" frameborder="0" style="height: 100%;width: 100%"></iframe>
+				</div>
+			</div>
+		</div>
+		<div class="warp" data-options="region:'west',headerCls:'west_header_ht'" title="系统菜单" style="width:160px;">
+			<ul id="menuTree" ></ul>
+		</div>
+		<div data-options="region:'south'" style="height:30px;border-bottom: none;">
+			<div align="center" class="bottom_c">Copyright ©2005-2011 [...]有限公司 版权所有</div>
+		</div>
+	</div>
+</body>
+</html>

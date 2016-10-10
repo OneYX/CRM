@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>原生JS树叶数字时钟代码</title>
+<style>
+body {
+	background-image: url(images/background.jpg);
+	background-color: #586683;
+	font-size: 100px;
+	color: #67A52E;
+}
+
+img {
+	vertical-align: middle;
+}
+</style>
+<script>
+	Date.prototype.addSeconds = function (value) { 
+		var second = this.getSeconds(); 
+		this.setSeconds(second + value); 
+		return this; 
+	};
+	
+	function toString(num) {
+		if (num < 10) {
+			return '0' + num;
+		} else {
+			return "" + num;
+		}
+	}
+
+	window.onload = function() {
+		var oDiv1 = document.getElementById('div1');
+		var oDiv2 = document.getElementById('div2');
+		var aImg1 = oDiv1.getElementsByTagName('img');
+		var aImg2 = oDiv2.getElementsByTagName('img');
+		var oDate = new Date();
+
+		function time() {
+			oDate = oDate.addSeconds(1);
+			//年月日
+			var dateString = toString(oDate.getFullYear())
+					+ toString(oDate.getMonth() + 1)
+					+ toString(oDate.getDate());
+			for ( var i = 0; i < aImg1.length; i++) {
+				aImg1[i].src = 'images/' + dateString.charAt(i) + '.png';
+			}
+
+			//时分秒
+			var timeString = toString(oDate.getHours())
+					+ toString(oDate.getMinutes())
+					+ toString(oDate.getSeconds());
+			for ( var j = 0; j < aImg2.length; j++) {
+				aImg2[j].src = 'images/' + timeString.charAt(j) + '.png';
+			}
+		}
+
+		setInterval(time, 1000);
+		time();
+	}
+</script>
+</head>
+
+<body>
+	<div id=div1 style="padding-top: 20px">
+		<img src="images/0.png" width="75px" height="100px" /> <img
+			src="images/0.png" width="75px" height="100px" /> <img
+			src="images/0.png" width="75px" height="100px" /> <img
+			src="images/0.png" width="75px" height="100px" /> . <img
+			src="images/0.png" width="75px" height="100px" /> <img
+			src="images/0.png" width="75px" height="100px" /> . <img
+			src="images/0.png" width="75px" height="100px" /> <img
+			src="images/0.png" width="75px" height="100px" />
+	</div>
+	<br />
+
+	<div id=div2>
+		<img src="images/0.png" width="120px" height="200px" /> <img
+			src="images/0.png" width="120px" height="200px" /> : <img
+			src="images/0.png" width="120px" height="200px" /> <img
+			src="images/0.png" width="120px" height="200px" /> : <img
+			src="images/0.png" width="120px" height="200px" /> <img
+			src="images/0.png" width="120px" height="200px" />
+	</div>
+</body>
+</html>
